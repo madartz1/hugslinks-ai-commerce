@@ -1,0 +1,9 @@
+{
+  "name": "hugslinks-ai-commerce-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HUGSLinks AI Commerce demo for Netlify",
+  "scripts": {
+    "start": "npx netlify dev"
+  }
+}

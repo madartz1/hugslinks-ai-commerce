@@ -1,0 +1,58 @@
+[
+  {
+    "id": "hugs-001",
+    "name": "Adjustable Phone Stand",
+    "category": "Tech",
+    "price": 24.99,
+    "supplierCost": 9.5,
+    "shipping": 3.5,
+    "score": 86,
+    "emoji": "\ud83d\udcf1",
+    "description": "Compact adjustable stand for a work desk or nightstand.",
+    "status": "approved",
+    "supplier": "Demo supplier",
+    "stock": 22
+  },
+  {
+    "id": "hugs-002",
+    "name": "Ambient LED Desk Light",
+    "category": "Home",
+    "price": 34.99,
+    "supplierCost": 14,
+    "shipping": 4.5,
+    "score": 78,
+    "emoji": "\ud83d\udca1",
+    "description": "Modern ambient lighting for small creative spaces.",
+    "status": "pending",
+    "supplier": "Demo supplier",
+    "stock": 11
+  },
+  {
+    "id": "hugs-003",
+    "name": "Everyday Travel Organizer",
+    "category": "Travel",
+    "price": 21.99,
+    "supplierCost": 7,
+    "shipping": 3,
+    "score": 82,
+    "emoji": "\ud83c\udf92",
+    "description": "Organize cables and little essentials on the go.",
+    "status": "pending",
+    "supplier": "Demo supplier",
+    "stock": 30
+  },
+  {
+    "id": "hugs-004",
+    "name": "Reusable Water Bottle",
+    "category": "Lifestyle",
+    "price": 27.99,
+    "supplierCost": 10,
+    "shipping": 4,
+    "score": 73,
+    "emoji": "\ud83d\udca7",
+    "description": "A simple portable bottle for everyday routines.",
+    "status": "approved",
+    "supplier": "Demo supplier",
+    "stock": 14
+  }
+]
