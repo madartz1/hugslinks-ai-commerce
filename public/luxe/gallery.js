@@ -19,7 +19,7 @@ function draw(value="all"){
     const title=document.createElement("h3");title.textContent=item.name;
     const para=document.createElement("p");para.textContent=item.description;
     const status=document.createElement("div");status.className="status";status.textContent=item.status;
-    const button=document.createElement("button");button.type="button";button.disabled=true;button.textContent="Awaiting artwork & print pricing";
+    const button=document.createElement("a");button.href="/luxe/artwork.html?collection="+encodeURIComponent(item.id);button.className="preview-link";button.textContent="Preview formats & frames →";
     info.append(over,title,para,status,button);card.append(art,info);el.append(card);
   }
 }
