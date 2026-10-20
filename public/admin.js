@@ -1,0 +1,9 @@
+const products=[
+{id:'hugs-001',name:'Adjustable Phone Stand',price:24.99,cost:9.5,shipping:3.5,score:86,status:'approved'},
+{id:'hugs-002',name:'Ambient LED Desk Light',price:34.99,cost:14,shipping:4.5,score:78,status:'pending'},
+{id:'hugs-003',name:'Everyday Travel Organizer',price:21.99,cost:7,shipping:3,score:82,status:'pending'},
+{id:'hugs-004',name:'Reusable Water Bottle',price:27.99,cost:10,shipping:4,score:73,status:'approved'}
+],key='hugs_demo_approved';const defaults=products.filter(p=>p.status==='approved').map(p=>p.id);
+const read=()=>JSON.parse(localStorage.getItem(key)||'null')||[...defaults];
+function render(){const approved=read();document.querySelector('#approvedCount').textContent=approved.length;document.querySelector('#pendingCount').textContent=products.length-approved.length;const rows=document.querySelector('#rows');rows.replaceChildren();for(const p of products){const yes=approved.includes(p.id);let tr=document.createElement('tr');const values=[p.name,String(p.score)+'/100','$'+(p.cost+p.shipping).toFixed(2),'$'+p.price.toFixed(2),(((p.price-p.cost-p.shipping)/p.price)*100).toFixed(1)+'%'];for(const val of values){let td=document.createElement('td');td.textContent=val;tr.append(td)}let status=document.createElement('td');status.innerHTML=`<span class="pill ${yes?'ok':''}">${yes?'Approved':'Pending'}</span>`;tr.append(status);let action=document.createElement('td'),btn=document.createElement('button');btn.className='button outline';btn.textContent=yes?'Unapprove':'Approve';btn.onclick=()=>{const next=yes?approved.filter(id=>id!==p.id):[...approved,p.id];localStorage.setItem(key,JSON.stringify(next));render()};action.append(btn);tr.append(action);rows.append(tr)}}
+document.querySelector('#reset').onclick=()=>{localStorage.removeItem(key);render()};render();
