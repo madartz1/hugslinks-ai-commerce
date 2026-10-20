@@ -1,0 +1,57 @@
+{
+  "currency": "USD",
+  "verified": false,
+  "notes": "Retail figures are illustrative only; no supplier costs, shipping quotes, or API SKU IDs have been verified.",
+  "variants": [
+    {
+      "id": "paper-8x10",
+      "medium": "Fine art paper",
+      "size": "8x10",
+      "retailTarget": 49,
+      "supplierSku": null,
+      "productionCost": null,
+      "shippingCost": null,
+      "active": false
+    },
+    {
+      "id": "paper-16x20",
+      "medium": "Fine art paper",
+      "size": "16x20",
+      "retailTarget": 149,
+      "supplierSku": null,
+      "productionCost": null,
+      "shippingCost": null,
+      "active": false
+    },
+    {
+      "id": "canvas-16x20",
+      "medium": "Stretched canvas",
+      "size": "16x20",
+      "retailTarget": 249,
+      "supplierSku": null,
+      "productionCost": null,
+      "shippingCost": null,
+      "active": false
+    },
+    {
+      "id": "canvas-18x24",
+      "medium": "Stretched canvas",
+      "size": "18x24",
+      "retailTarget": 299,
+      "supplierSku": null,
+      "productionCost": null,
+      "shippingCost": null,
+      "active": false
+    },
+    {
+      "id": "float-16x20",
+      "medium": "Floating-framed canvas",
+      "size": "16x20",
+      "retailTarget": 349,
+      "supplierSku": null,
+      "productionCost": null,
+      "shippingCost": null,
+      "active": false
+    }
+  ]
+}
