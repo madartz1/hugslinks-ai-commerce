@@ -2,7 +2,7 @@
 // Connect an authorized asset catalog and validated print SKUs before enabling purchases.
 const catalog=[
   {id:"swan-catalog",collection:"swan",eyebrow:"ARTIST COLLECTION",name:"Swan the Artist",description:"Original works from Swan's authorized fine-art catalog.",status:"Catalog upload pending",symbol:"S",tone:"swan"},
-  {id:"golden-reflections",collection:"swan",eyebrow:"SWAN COLLECTION · AI-ASSISTED",name:"Golden Reflections",description:"A serene park lake with rowboats, stone bridge, and distant city skyline. Adopted by Swan for the LUXE Collection.",status:"Art selected · fulfillment pending",symbol:"G",tone:"swan",image:"/luxe/images/golden-reflections.jpg"},
+  {id:"golden-reflections",collection:"swan",eyebrow:"SWAN COLLECTION · AI-ASSISTED",name:"Golden Reflections",description:"A serene park lake with rowboats, stone bridge, and distant city skyline. Adopted by Swan for the LUXE Collection.",status:"Art selected · fulfillment pending",symbol:"G",tone:"swan",image:"/luxe/golden-reflections-web.jpg"},
   {id:"hugs-ai-catalog",collection:"hugs-ai",eyebrow:"HUGSLINKS STUDIO",name:"HUGS AI Creations",description:"Original visual collections produced by HUGSLinks.",status:"Art selection pending",symbol:"H",tone:"ai"}
 ];
 const el=document.querySelector("#gallery");
