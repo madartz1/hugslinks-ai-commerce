@@ -1,0 +1,11 @@
+const products = [
+{id:'hugs-001',name:'Adjustable Phone Stand',category:'Tech',price:24.99,emoji:'📱',description:'Compact adjustable stand for a work desk or nightstand.',status:'approved'},
+{id:'hugs-002',name:'Ambient LED Desk Light',category:'Home',price:34.99,emoji:'💡',description:'Modern ambient lighting for small creative spaces.',status:'pending'},
+{id:'hugs-003',name:'Everyday Travel Organizer',category:'Travel',price:21.99,emoji:'🎒',description:'Organize cables and little essentials on the go.',status:'pending'},
+{id:'hugs-004',name:'Reusable Water Bottle',category:'Lifestyle',price:27.99,emoji:'💧',description:'A simple portable bottle for everyday routines.',status:'approved'}
+];
+const approved=()=>JSON.parse(localStorage.getItem('hugs_demo_approved')||'null')||products.filter(p=>p.status==='approved').map(p=>p.id);
+const cards=document.querySelector('#cards'),search=document.querySelector('#search'),category=document.querySelector('#category');
+for(const value of [...new Set(products.map(p=>p.category))]){let o=document.createElement('option');o.value=value;o.textContent=value;category.append(o)}
+function render(){const s=search.value.trim().toLowerCase(),c=category.value,allowed=approved();const result=products.filter(p=>allowed.includes(p.id)&&(!s||(p.name+' '+p.description).toLowerCase().includes(s))&&(!c||p.category===c));cards.replaceChildren();for(const p of result){const el=document.createElement('article');el.className='card';el.innerHTML=`<div class="art" aria-hidden="true">${p.emoji}</div><div class="card-content"><div class="category">${p.category}</div><h3>${p.name}</h3><p>${p.description}</p><div class="bottom"><span class="price">$${p.price.toFixed(2)}</span><button class="button" disabled title="Checkout unavailable in prototype">Coming soon</button></div></div>`;cards.append(el)}if(!result.length)cards.textContent='No products match your search.'}
+search.addEventListener('input',render);category.addEventListener('change',render);window.addEventListener('storage',render);render();
