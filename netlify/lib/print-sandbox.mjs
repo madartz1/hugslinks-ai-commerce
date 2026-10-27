@@ -26,8 +26,8 @@ export async function handleSandbox(request,context,{env=process.env,fetcher=fet
  // This endpoint is strictly limited to deploy previews, with a separate admin token.
  if(context?.deploy?.context!=='deploy-preview')return json({error:'Not found.'},404);
  if(request.method!=='POST')return json({error:'Method not allowed.'},405);
- if(!equal(request.headers.get('x-hugs-print-test-token'),env.HUGS_ART_PRINT_TEST_TOKEN))return json({error:'Unauthorized.'},401);
- const webKey=env.FINERWORKS_WEB_API_KEY,appKey=env.FINERWORKS_APP_KEY,sku=env.FINERWORKS_TEST_SKU;
+ if(!equal(request.headers.get('x-hugs-print-test-token'),env.HUGS_SWAN_PREVIEW_GATE))return json({error:'Unauthorized.'},401);
+ const webKey=env.FINERWORKS_WEB_API_KEY,appKey=env.FINERWORKS_APP_KEY,sku=env.HUGS_SWAN_TEST_SKU;
  if(!webKey||!appKey||!sku)return json({ok:false,error:'test_configuration_incomplete',testOnly:true},503);
  if(Number(request.headers.get('content-length')||0)>4096)return json({error:'Request too large.'},413);
  let body;try{const raw=await request.text();if(raw.length>4096)return json({error:'Request too large.'},413);body=JSON.parse(raw)}catch{return json({error:'Invalid JSON.'},400)}
