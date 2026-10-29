@@ -26,7 +26,7 @@ export async function handleSandbox(request,context,{env=process.env,fetcher=fet
  // This endpoint is strictly limited to deploy previews, with a separate admin token.
  if(context?.deploy?.context!=='deploy-preview')return json({error:'Not found.'},404);
  if(request.method!=='POST')return json({error:'Method not allowed.'},405);
- if(!equal(request.headers.get('x-hugs-print-test-token'),env.HUGS_SWAN_DIAGNOSTIC_GATE))return json({error:'Unauthorized.'},401);
+ if(!equal(request.headers.get('x-hugs-print-test-token'),env.HUGS_SHIPPING_QUOTE_GATE))return json({error:'Unauthorized.'},401);
  const webKey=env.FINERWORKS_WEB_API_KEY,appKey=env.FINERWORKS_APP_KEY,sku=env.HUGS_SWAN_TEST_SKU;
  if(!webKey||!appKey||!sku)return json({ok:false,error:'test_configuration_incomplete',testOnly:true},503);
  if(Number(request.headers.get('content-length')||0)>4096)return json({error:'Request too large.'},413);
@@ -39,7 +39,7 @@ export async function handleSandbox(request,context,{env=process.env,fetcher=fet
   const dest=recipient(body.recipient);if(!dest)return json({error:'Provide a valid contiguous US address for the test.'},400);
   const po='HUGS-TEST-'+uuid();orderPo=po;
   endpoint='list_shipping_options_multiple';
-  payload={orders:[{order_po:po,guest:false,recipient:dest,order_items:[{product_order_po:po,product_qty:1,product_sku:sku,product_title:'Swan Canvas Test'}],test_mode:true}],account_key:null};
+  payload={orders:[{order_po:po,guest:false,shipping_code:'SD',recipient:{...dest,address_order_po:po},order_items:[{product_order_po:po,product_qty:1,product_sku:sku,product_title:'Swan Canvas Test'}],test_mode:true}],account_key:null};
  }
  let response,data;const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),8000);
  try{
